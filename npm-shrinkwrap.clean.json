@@ -18,9 +18,6 @@
     "@types/node": {
       "version": "4.0.22-alpha"
     },
-    "@types/selenium-webdriver": {
-      "version": "2.44.20-alpha"
-    },
     "accepts": {
       "version": "1.2.13",
       "dependencies": {

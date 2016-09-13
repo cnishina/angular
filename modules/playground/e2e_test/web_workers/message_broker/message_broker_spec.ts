@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
+import {browser, by, element, protractor} from 'protractor/globals';
 import {verifyNoBrowserErrors} from 'e2e_util/e2e_util';
 
 var URL = 'all/playground/src/web_workers/message_broker/index.html';

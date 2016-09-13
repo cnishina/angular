@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
+import {$} from 'protractor/globals';
 import {openBrowser, verifyNoBrowserErrors} from 'e2e_util/e2e_util';
 
 describe('tree benchmark spec', () => {
