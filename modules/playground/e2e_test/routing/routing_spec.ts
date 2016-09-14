@@ -6,10 +6,11 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
+import {$, browser, by, element, ExpectedConditions} from 'protractor/globals';
 import {verifyNoBrowserErrors} from 'e2e_util/e2e_util';
 
 function waitForElement(selector: any /** TODO #9100 */) {
-  var EC = (<any>protractor).ExpectedConditions;
+  var EC = ExpectedConditions;
   // Waits for the element with id 'abc' to be present on the dom.
   browser.wait(EC.presenceOf($(selector)), 20000);
 }

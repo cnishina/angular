@@ -6,6 +6,8 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
+import {browser, $} from 'protractor/globals';
+import {promise} from 'selenium-webdriver';
 import {verifyNoBrowserErrors} from 'e2e_util/e2e_util';
 
 describe('async', () => {
@@ -67,7 +69,7 @@ describe('async', () => {
   });
 
   it('should wait via frameworkStabilizer', () => {
-    var whenAllStable = function() {
+    var whenAllStable = function(): promise.Promise<boolean> {
       return browser.executeAsyncScript('window.frameworkStabilizers[0](arguments[0]);');
     };
 
@@ -82,14 +84,14 @@ describe('async', () => {
 
     timeout.$('.action').click();
 
-    whenAllStable().then((didWork) => {
+    whenAllStable().then((didWork: boolean) => {
       // whenAllStable should only be called when all the async actions
       // finished, so the count should be 10 at this point.
       expect(timeout.$('.val').getText()).toEqual('10');
       expect(didWork).toBeTruthy();  // Work was done.
     });
 
-    whenAllStable().then((didWork) => {
+    whenAllStable().then((didWork: boolean) => {
       // whenAllStable should be called immediately since nothing is pending.
       expect(didWork).toBeFalsy();  // No work was done.
       browser.ignoreSynchronization = false;

@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 const yargs = require('yargs');
-import * as webdriver from 'selenium-webdriver';
+import {logging} from 'selenium-webdriver';
 
 let cmdArgs: {'bundles': boolean};
 
@@ -54,10 +54,10 @@ export function verifyNoBrowserErrors() {
   browser.executeScript('1+1');
   browser.manage().logs().get('browser').then(function(browserLog: any) {
     var filteredLog = browserLog.filter(function(logEntry: any) {
-      if (logEntry.level.value >= webdriver.logging.Level.INFO.value) {
+      if (logEntry.level.value >= logging.Level.INFO.value) {
         console.log('>> ' + logEntry.message);
       }
-      return logEntry.level.value > webdriver.logging.Level.WARNING.value;
+      return logEntry.level.value > logging.Level.WARNING.value;
     });
     expect(filteredLog).toEqual([]);
   });

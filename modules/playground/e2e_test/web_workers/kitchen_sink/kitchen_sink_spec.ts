@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
+import {browser, by, element, ExpectedConditions, protractor} from 'protractor/globals';
 import {verifyNoBrowserErrors} from 'e2e_util/e2e_util';
 
 describe('WebWorkers Kitchen Sink', function() {
@@ -24,7 +25,7 @@ describe('WebWorkers Kitchen Sink', function() {
     browser.wait(protractor.until.elementLocated(by.css(selector)), 15000);
     var elem = element(by.css(selector));
     browser.wait(
-        protractor.ExpectedConditions.textToBePresentInElement(elem, 'hello world!'), 5000);
+        ExpectedConditions.textToBePresentInElement(elem, 'hello world!'), 5000);
     expect(elem.getText()).toEqual('hello world!');
 
   });
@@ -39,7 +40,7 @@ describe('WebWorkers Kitchen Sink', function() {
     element(by.css(changeButtonSelector)).click();
     var elem = element(by.css(selector));
     browser.wait(
-        protractor.ExpectedConditions.textToBePresentInElement(elem, 'howdy world!'), 5000);
+        ExpectedConditions.textToBePresentInElement(elem, 'howdy world!'), 5000);
     expect(elem.getText()).toEqual('howdy world!');
   });
 
@@ -53,7 +54,7 @@ describe('WebWorkers Kitchen Sink', function() {
     expect(area.getText()).toEqual('(none)');
 
     area.sendKeys('u');
-    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(area, 'U'), 5000);
+    browser.wait(ExpectedConditions.textToBePresentInElement(area, 'U'), 5000);
     expect(area.getText()).toEqual('U');
   });
 });

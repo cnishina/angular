@@ -7,7 +7,10 @@
         "sourceMap": true,
         "baseUrl": ".",
         "paths": {
-          "@angular/core": ["../../../dist/packages-dist/core"]
+          "@angular/core": ["../../../dist/packages-dist/core"],
+          "protractor": ["../../../node_modules/protractor/built/index.d.ts"],
+          "protractor/globals": ["../../../node_modules/protractor/globals.d.ts"],
+          "selenium-webdriver": ["../../../node_modules/protractor/typings/globals/selenium-webdriver/index.d.ts"]
         },
         "experimentalDecorators": true,
         "rootDir": ".",

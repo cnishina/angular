@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
+import {browser, by, element, ExpectedConditions, protractor} from 'protractor/globals';
 import {verifyNoBrowserErrors} from 'e2e_util/e2e_util';
 
 var URL = 'all/playground/src/web_workers/message_broker/index.html';
@@ -36,7 +37,7 @@ describe('MessageBroker', function() {
     input.sendKeys(VALUE);
     element(by.css('#send_echo')).click();
     var area = element(by.css('#echo_result'));
-    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(area, VALUE), 5000);
+    browser.wait(ExpectedConditions.textToBePresentInElement(area, VALUE), 5000);
     expect(area.getText()).toEqual(VALUE);
   });
 });
